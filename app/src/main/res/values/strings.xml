@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AndroidFinalProject</string>
+    <string name="PropertyName">Name</string>
+    <string name="PropertyAddress">Address</string>
+    <string name="PropertyCity">City</string>
+    <string name="PropertyRegion">Region</string>
+    <string name="PropertyDesc">Description</string>
+    <string name="btn_add">Add</string>
+</resources>

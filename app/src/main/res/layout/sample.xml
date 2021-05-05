@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_blue_light"
+        android:weightSum="5">
+
+    <TextView
+        android:id="@+id/text_sample_id"
+        android:layout_weight="3.0"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="5dp"
+        android:background="@android:color/holo_blue_light"
+        android:text="Testing Hello"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+
+        <Button
+            android:id="@+id/button_sample_delete"
+            android:layout_weight="2.0"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Delete"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+</LinearLayout>
