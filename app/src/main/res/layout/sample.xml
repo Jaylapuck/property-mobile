@@ -25,7 +25,7 @@
 
         <Button
             android:id="@+id/button_sample_delete"
-            android:layout_weight="2.0"
+            android:layout_weight="1.8"
             android:layout_width="3dp"
             android:layout_height="match_parent"
             android:gravity="center"

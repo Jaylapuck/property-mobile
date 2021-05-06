@@ -21,7 +21,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
 
-    private Button btn_main_add, btn_main_delete;
+    private Button btn_main_add;
     private MyListAdapter myListAdapter;
     private DBHandler dbHandler;
     private ListView listView;
@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         searchView = findViewById(R.id.src_property);
 
         dbHandler = new DBHandler(MainActivity.this);
+
 
         ShowPropertiesOnListView();
 
@@ -70,9 +71,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void ShowPropertiesOnListView() {
-
-        myListAdapter = new MyListAdapter(MainActivity.this, R.layout.sample, dbHandler.getName());
-        listView.setAdapter(myListAdapter);
+        if (dbHandler.getName().length != 0){
+            myListAdapter = new MyListAdapter(MainActivity.this, R.layout.sample, dbHandler.getName());
+            listView.setAdapter(myListAdapter);
+        }
 
     }
 
@@ -96,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
     private  class MyListAdapter extends  ArrayAdapter<String>{
 
         private final int layout;
-
         public MyListAdapter(@NonNull Context context, int resource, @NonNull String[] objects) {
             super(context, resource, objects);
             layout = resource;
@@ -116,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             }
             mainViewHolder = (ViewHolder) convertView.getTag();
             mainViewHolder.button.setOnClickListener(v -> new AlertDialog.Builder(getContext())
-                    .setTitle("Title")
+                    .setTitle("Property Delete")
                     .setMessage("Do you really want to delete this property?")
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
@@ -132,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
             return convertView;
         }
 
-        @NonNull
         @Override
         public Filter getFilter() {
             return super.getFilter();
