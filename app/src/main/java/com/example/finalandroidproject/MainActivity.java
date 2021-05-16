@@ -3,11 +3,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -50,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener((parent, view, position, id) -> {
             Intent  intent = new Intent(MainActivity.this, DisplayActivity.class);
             String propertyName = listView.getItemAtPosition(position).toString();
-            Toast.makeText(MainActivity.this, propertyName, Toast.LENGTH_SHORT).show();
             intent.putExtra("name", propertyName );
             startActivity(intent);
 
@@ -116,18 +118,36 @@ public class MainActivity extends AppCompatActivity {
                 convertView.setTag(viewHolder);
             }
             mainViewHolder = (ViewHolder) convertView.getTag();
-            mainViewHolder.button.setOnClickListener(v -> new AlertDialog.Builder(getContext())
-                    .setTitle("Property Delete")
-                    .setMessage("Do you really want to delete this property?")
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
-                        String courseName = listView.getItemAtPosition(position).toString();
-                        Toast.makeText(MainActivity.this, courseName, Toast.LENGTH_SHORT).show();
-                        dbHandler.deleteOne(courseName);
-                        Toast.makeText(MainActivity.this, "delete course: " + courseName, Toast.LENGTH_SHORT).show();
-                        ShowPropertiesOnListView();
-                    })
-                    .setNegativeButton(android.R.string.no, null).show());
+            mainViewHolder.button.setOnTouchListener(new View.OnTouchListener() {
+               final GestureDetector gestureDetector = new GestureDetector(getApplicationContext(), new GestureDetector.SimpleOnGestureListener(){
+                    @Override
+                    public void onLongPress(MotionEvent e) {
+                        @SuppressLint("ClickableViewAccessibility") AlertDialog alertDialog = new AlertDialog.Builder(getContext())
+                                .setTitle("Property Delete")
+                                .setMessage("Do you really want to delete this property?")
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
+                                    String courseName = listView.getItemAtPosition(position).toString();
+                                    dbHandler.deleteOne(courseName);
+                                    Toast.makeText(MainActivity.this, "delete course: " + courseName, Toast.LENGTH_SHORT).show();
+                                    ShowPropertiesOnListView();
+                                })
+                                .setNegativeButton(android.R.string.no, null).show();
+                        alertDialog.show();
+                    }
+
+                    @Override
+                    public boolean onDoubleTap(MotionEvent e) {
+                        return super.onDoubleTap(e);
+                    }
+                });
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    Toast.makeText(MainActivity.this, "Long press is needed to double click", Toast.LENGTH_SHORT).show();
+                    gestureDetector.onTouchEvent(event);
+                    return false;
+                }
+            });
             mainViewHolder.textView.setText(getItem(position));
 
             return convertView;

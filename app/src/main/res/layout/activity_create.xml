@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_orange_light"
+    android:background="#0C374D"
     tools:context=".CreateActivity">
 
     <EditText
@@ -19,6 +19,8 @@
         android:ems="10"
         android:hint="@string/PropertyName"
         android:inputType="textPersonName"
+        android:textColorHint="?android:attr/textColorHintInverse"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,6 +37,8 @@
         android:ems="10"
         android:hint="@string/PropertyAddress"
         android:inputType="textPersonName"
+        android:textColorHint="?android:attr/textColorHintInverse"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,6 +54,8 @@
         android:ems="10"
         android:hint="@string/PropertyCity"
         android:inputType="textPersonName"
+        android:textColorHint="?android:attr/textColorHintInverse"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/et_property_region"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,6 +69,8 @@
         android:ems="10"
         android:hint="@string/PropertyRegion"
         android:inputType="textPersonName"
+        android:textColorHint="?android:attr/textColorHintInverse"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.947"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,6 +89,8 @@
         android:gravity="start|top"
         android:hint="@string/PropertyDesc"
         android:inputType="textMultiLine"
+        android:textColorHint="?android:attr/textColorHintInverse"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_property_city" />

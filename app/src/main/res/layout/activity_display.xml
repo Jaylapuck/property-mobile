@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_orange_light"
+    android:background="#0C374D"
     tools:context=".DisplayActivity">
 
     <LinearLayout
@@ -29,6 +29,13 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="251dp"
+            android:layout_margin="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/default_property" />
 
         <TextView
@@ -37,8 +44,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/roboto"
             android:text="@string/PropertyName"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -48,8 +56,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/roboto"
             android:text="@string/PropertyAddress"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -59,8 +68,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/roboto"
             android:text="@string/PropertyCity"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -70,8 +80,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/roboto"
             android:text="@string/PropertyRegion"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -81,8 +92,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/roboto"
             android:text="@string/PropertyDesc"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold" />
 
